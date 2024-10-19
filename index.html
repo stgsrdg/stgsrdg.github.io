@@ -8,63 +8,76 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
-    <header style="background-color: white;">
-        <nav>
-            <ul>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#about">Sobre Mi</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1>Bienvenidos a la Consulta Pediátrica</h1>
-            <p>Atención especializada para el cuidado de tus hijos.</p>
-            <a class="btn" href="#contact"">Agendar Cita</a>
+
+    <div id="loader-wrapper">
+        <div id="loader">
+            <img src="https://cdn-icons-png.flaticon.com/512/421/421264.png" alt="Cargando...">
         </div>
-    </header>
+        <p id="connection-warning" style="display: none;">Verifica tu conexión a internet.</p>
+    </div>
 
-    <main>
 
-        <div style="background-color: white;">
-            <section class="services" id="services">
-                <h2>Servicios:</h2>
-                <div class="service">
-                    <h3>Atención Neonatal</h3>
-                    <p>Cuidados especiales desde el primer día.</p>
-                </div>
-                <div class="service">
-                    <h3>Consulta General</h3>
-                    <p>Revisión completa y seguimiento del desarrollo.</p>
-                </div>
-                <div class="service">
-                    <h3>Consultas en Línea</h3>
-                    <p>Facilidades para atención remota.</p>
-                </div>
-            </section> 
-        </div>
+    <div id="content" style="display: none;">
 
-        <div class="backgr-img"></div>
+        <header style="background-color: white;">
+            <nav>
+                <ul>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#about">Sobre Mi</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <h1>Bienvenidos a la Consulta Pediátrica</h1>
+                <p>Atención especializada para el cuidado de tus hijos.</p>
+                <a class="btn" href="#contact"">Agendar Cita</a>
+            </div>
+        </header>
 
-        <div style="background-color: white;">
-            
-            <section class="about" id="about">
-                <h2>Sobre Mi</h2>
-                <p>Con más de 20 años de experiencia en pediatría, brindamos atención integral y de calidad para niños y adolescentes.</p>
-            </section>
+        <main>
 
-            <section class="contact" id="contact">
-                <h2 style="margin-bottom: 25px;">Si Quieres Agendar Tu Cita O Solo Saludarme, Contactame:</h2>
-                <a href="https://wa.me/+56933705038" class="WaBtn" id="contact">WhatsApp</a>
-                <a href="tel:+573123747146" class="LLBtn">Llámame</a>
-            </section>
-        </div>
-    </main>
+            <div style="background-color: white;">
+                <section class="services" id="services">
+                    <h2>Servicios:</h2>
+                    <div class="service">
+                        <h3>Atención Neonatal</h3>
+                        <p>Cuidados especiales desde el primer día.</p>
+                    </div>
+                    <div class="service">
+                        <h3>Consulta General</h3>
+                        <p>Revisión completa y seguimiento del desarrollo.</p>
+                    </div>
+                    <div class="service">
+                        <h3>Consultas en Línea</h3>
+                        <p>Facilidades para atención remota.</p>
+                    </div>
+                </section> 
+            </div>
 
-    <footer>
-        <p>&copy; 2024 Consulta Pediátrica. Todos los derechos reservados.</p>
-    </footer>
+            <div class="backgr-img"></div>
+
+            <div style="background-color: white;">
+                
+                <section class="about" id="about">
+                    <h2>Sobre Mi</h2>
+                    <p>Con más de 20 años de experiencia en pediatría, brindamos atención integral y de calidad para niños y adolescentes.</p>
+                </section>
+
+                <section class="contact" id="contact">
+                    <h2 style="margin-bottom: 25px;">Si Quieres Agendar Tu Cita O Solo Saludarme, Contactame:</h2>
+                    <a href="https://wa.me/+56933705038" class="WaBtn" id="contact">WhatsApp</a>
+                    <a href="tel:+573123747146" class="LLBtn">Llámame</a>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Consulta Pediátrica. Todos los derechos reservados.</p>
+        </footer>
+
+    </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
