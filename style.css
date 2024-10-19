@@ -162,3 +162,16 @@ footer {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+a {
+    color: aqua;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: rgb(199, 235, 42);
+    background-color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
