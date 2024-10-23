@@ -44,7 +44,6 @@ body {
     overflow-x: hidden;
 }
 
-/*
 body {
     background-image: url('img/nino1.jpg'); 
     background-repeat: repeat; 
@@ -52,7 +51,6 @@ body {
     background-position: center; 
       background-attachment: fixed
 }
-*/
 
 /* Navegación */
 nav {
