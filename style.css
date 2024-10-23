@@ -191,6 +191,15 @@ a:hover {
     text-decoration: none;
 }
 
+.seemore {
+    text-align: center;
+    color: #c2cf4e;
+}
+
+.seemore:hover {
+    color: #7af35c;
+}
+
 .fondo-texto {
     position: relative;
     width: 100%;
