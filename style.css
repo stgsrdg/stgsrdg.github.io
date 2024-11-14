@@ -9,7 +9,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fb80ff;
+    background-image: url('img/backgraund-2.jpg');
+    background-repeat: repeat; 
+    background-size: cover; 
+    background-position: center; 
+      background-attachment: fixed;
     z-index: 9999;
     transition: transform 1s ease-in-out; /* Transición suave hacia arriba */
 }
@@ -18,6 +22,8 @@
     width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
     height: 100px;
     animation: spin infinite 1s linear;
+    background-color: #e0f873;
+    border-radius: 9999px;
 }
 
 /* Texto de advertencia de conexión */
@@ -45,7 +51,7 @@ body {
 }
 
 body {
-    background-image: url('img/nino1.jpg'); 
+    background-image: url('img/backgraund-1.jpg'); 
     background-repeat: repeat; 
     background-size: cover; 
     background-position: center; 
@@ -242,4 +248,10 @@ a:hover {
     justify-content: center;
     align-items: center;
     background-color: white;
+}
+
+@media (min-width: 768px) {
+    .carousel {
+        width: 42%;
+    }
 }
