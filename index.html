@@ -1,110 +1,699 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pediatra en Chile</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="shortcut icon" href="img/icon.jpg" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulta Pediátrica - Dr. Especialista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&family=Inter:wght@400&family=Alexandria:wght@400&family=Roboto:wght@400&family=Jersey+25:wght@400&family=Righteous:wght@400&family=Jeju+Gothic:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=1200'); 
+            background-position: center;
+            background-size: cover;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 250px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: block;
+        }
+
+        .hero-image-mobile {
+            width: 100%;
+            height: 75vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-image {
+                display: none;
+            }
+
+            .hero-image-mobile {
+                display: block;
+            }
+
+            .hero-section {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 50px;
+            }
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 8%;
+            right: 8%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .welcome-title {
+            font-size: 48px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            text-align: right;
+            color: #ffffff;
+            text-shadow: 4px 5px 1px rgba(0, 0, 0, 0.73);
+            margin-bottom: -20px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            text-align: right;
+            color: #ffffff;
+            text-shadow: -3px 4px 1px rgba(0, 0, 0, 0.58);
+            margin-right: 32px;
+        }
+
+        .cta-button {
+            background-color: rgba(70, 85, 187, 0.73);
+            border-radius: 20px;
+            padding: 12px 32px;
+            margin-top: 24px;
+            margin-right: 44px;
+            box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.92);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(70, 85, 187, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .cta-text {
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #ffffff;
+        }
+
+        .about-section {
+            width: 100%;
+            padding: 40px 24px 80px;
+            margin-top: -200px;
+            position: relative;
+            z-index: 3;
+            margin-bottom: 85px;
+        }
+
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: color 0.3s ease, transform 0.3s;
+        }
+
+        .about-container:hover {
+            transform: scale(1.04);
+        }
+
+        .about-card {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 48px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+            width: 100%;
+            transition: color 0.3s ease, transform 0.3s;
+        }
+
+        .about-card:hover {
+            background-color: rgba(0, 0, 0, 0.356);
+        }
+
+        .about-title {
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            line-height: 1.5;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 12px;
+        }
+
+        .about-text {
+            font-size: 16px;
+            font-family: 'Jeju Gothic', sans-serif;
+            font-weight: 400;
+            line-height: 1.1;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .read-more {
+            font-size: 16px;
+            font-family: 'Jeju Gothic', sans-serif;
+            font-weight: 400;
+            line-height: 1.1;
+            text-align: center;
+            color: #cc5454;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            color: #ff6b6b;
+        }
+
+        .services-section {
+            width: 100%;
+            background: linear-gradient(180deg, #0067c9 0%, #1e2f97 100%);
+            padding: 60px 24px 130px;
+            margin-top: -60px;
+            position: relative;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .services-title {
+            font-size: 32px;
+            font-family: 'Alexandria', sans-serif;
+            font-weight: 400;
+            line-height: 1.2;
+            text-align: center;
+            text-transform: capitalize;
+            color: #1aa7ee;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .service-card {
+            background-color: rgba(0, 0, 0, 0.534);
+            border: 1px solid;
+            border-image: linear-gradient(306deg, rgba(77, 77, 77, 0.6) 0%, rgba(179, 179, 179, 0.6) 100%);
+            border-radius: 12px;
+            padding: 48px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.7s ease;
+        }
+
+        .service-card:hover {
+            background-color: rgba(0, 0, 0, 0.308);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.25;
+            text-align: center;
+            color: #e5e5e5;
+        }
+
+        .service-description {
+            font-size: 16px;
+            font-family: 'Alexandria', sans-serif;
+            font-weight: 400;
+            line-height: 1.2;
+            text-align: center;
+            color: #999999;
+        }
+
+        .contact-section {
+            width: 100%;
+            background: linear-gradient(180deg, #1e2f97 0%, #cc9839 100%);
+            padding: 94px 24px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .contact-title {
+            font-size: 48px;
+            font-family: 'Jersey 25', sans-serif;
+            font-weight: 400;
+            line-height: 1;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .contact-buttons {
+            background-color: rgba(0, 0, 0, 0.17);
+            border-radius: 66px;
+            padding: 66px 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: -10px;
+        }
+
+        .whatsapp-btn {
+            font-size: 42px;
+            font-family: 'Righteous', sans-serif;
+            font-weight: 400;
+            line-height: 1.25;
+            text-align: center;
+            color: #9cff3a;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .call-btn {
+            font-size: 42px;
+            font-family: 'Righteous', sans-serif;
+            font-weight: 400;
+            line-height: 1.25;
+            text-align: center;
+            color: #17b9ff;
+            margin-top: -16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-btn:hover,
+        .call-btn:hover {
+            transform: scale(1.05);
+        }
+
+/* --- CÓDIGO CSS MODIFICADO --- */
+
+/* 1. Modificamos la clase principal para que esté oculta al inicio */
+.about-section {
+    width: 100%;
+    position: relative;
+    padding: 40px 24px 80px;
+    margin-top: -200px;
+    z-index: 3;
+    overflow: hidden;
+
+
+    background-position: center;
+    background-size: cover;
+
+    /* La hacemos invisible al principio y preparamos la transición */
+    opacity: 0;
+    transform: translateX(-30%); /* La movemos a la izquierda fuera de la vista */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Transición suave */
+}
+
+/* 2. Creamos una nueva clase que activará la animación */
+.about-section.animate {
+    opacity: 1; /* La hacemos visible */
+    transform: translateX(0); /* La movemos a su posición original */
+}
+
+
+/* --- CÓDIGO ORIGINAL QUE SE MANTIENE IGUAL --- */
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    transition: color 0.3s ease, transform 0.3s;
+}
+
+.about-container:hover {
+    transform: scale(1.04);
+}
+
+.about-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 48px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    width: 100%;
+    transition: color 0.3s ease, transform 0.3s;
+}
+
+.about-card:hover {
+    background-color: rgba(0, 0, 0, 0.356);
+}
+
+.about-title {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    line-height: 1.5;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 12px;
+}
+
+.about-text {
+    font-size: 16px;
+    font-family: 'Jeju Gothic', sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: center;
+    color: #ffffff;
+}
+
+.read-more {
+    font-size: 16px;
+    font-family: 'Jeju Gothic', sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: center;
+    color: #cc5454;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    color: #ff6b6b;
+}
+        @media (min-width: 640px) {
+            .welcome-title {
+                font-size: 64px;
+            }
+            
+            .subtitle {
+                font-size: 32px;
+            }
+            
+            .cta-text {
+                font-size: 24px;
+            }
+            
+            .about-title {
+                font-size: 32px;
+            }
+            
+            .about-text {
+                font-size: 18px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                top: 10%;
+                right: 10%;
+            }
+            
+            .welcome-title {
+                font-size: 72px;
+            }
+            
+            .subtitle {
+                font-size: 36px;
+            }
+            
+            .cta-text {
+                font-size: 28px;
+            }
+            
+            .about-section {
+                padding: 60px 56px 80px;
+            }
+            
+            .about-title {
+                font-size: 40px;
+            }
+            
+            .about-text {
+                font-size: 20px;
+            }
+            
+            .services-title {
+                font-size: 40px;
+            }
+            
+            .contact-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .contact-title {
+                font-size: 64px;
+            }
+            
+            .whatsapp-btn,
+            .call-btn {
+                font-size: 56px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .welcome-title {
+                font-size: 96px;
+            }
+            
+            .subtitle {
+                font-size: 48px;
+            }
+            
+            .cta-text {
+                font-size: 36px;
+            }
+            
+            .about-title {
+                font-size: 48px;
+            }
+            
+            .about-text {
+                font-size: 24px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .services-section {
+                padding: 80px 120px 130px;
+            }
+            
+            .contact-title {
+                font-size: 80px;
+            }
+            
+            .whatsapp-btn,
+            .call-btn {
+                font-size: 70px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .services-title {
+                font-size: 48px;
+            }
+            
+            .contact-title {
+                font-size: 96px;
+            }
+            
+            .whatsapp-btn,
+            .call-btn {
+                font-size: 84px;
+            }
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fabelclas2199back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
 </head>
 <body>
-    <!-- <h1>Página Bloqueada</h1> -->
-    
-    <div id="loader-wrapper">
-        <div id="loader">
-            <img src="https://cdn-icons-png.flaticon.com/512/421/421264.png" alt="Cargando...">
-        </div>
-        <p id="connection-warning" style="display: none;">Verifica tu conexión a internet.</p>
-    </div>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <img src="background.png" alt="Pediatric consultation" class="hero-image" />
+            <img src="background-mobile.png" alt="Pediatric consultation" class="hero-image-mobile" />
 
-
-    <div id="content" style="display: none;">
-
-        <header style="background-color: white;">
-            <nav>
-                <ul>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#about">Sobre Mi</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <div class="hero">
-                <h1>Bienvenidos a tu Consulta Pediátrica Especializada</h1>
-                <p>Atención especializada para el cuidado de tus hijos.</p>
-                <a class="btn" href="#contact"">Agendar Cita</a>
+            <div class="hero-content">
+                <h1 class="welcome-title">BIENVENIDOS</h1>
+                <h2 class="subtitle">Consulta Pediátrica</h2>
+                <button class="cta-button">
+                    <span class="cta-text"><a href="#contacto" style="color: #ffffff; text-decoration: none;">Agendar Cita</a></span>
+                </button>
             </div>
-        </header>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <ul>
-    
-                        <li><img src="https://stgsrdg.github.io/img/carousel1.jpg" alt="Imagen 1" ></li>
-    
-                        <li><img src="https://stgsrdg.github.io/img/carousel3.jpg" alt="Imagen 2"></li>
-    
-                        <li><img src="https://stgsrdg.github.io/img/carousel2.jpg" alt="Imagen 3"></li>
+        </div>
 
-    
-                    </ul>
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="about-container">
+                <div class="about-card">
+                    <h3 class="about-title">ACERCA DE MI</h3>
+                    <p class="about-text">
+                        Médico cirujano con más de 25 años de experiencia en la atención de niños y adolescentes, con posgrado en Pediatría y Puericultura.<br /><br />
+                        Capacitación BLS y Cardiovascular Life Support. Profesional con alto nivel de compromiso, responsabilidad y ética.<br /><br />
+                        Cuento con capacidad de organización y dirección de equipos con buen nivel de relacionamiento interpersonal. Como profesional extranjera radicada en Chile, cuento con Visa Profesional, EUNACOM ST y SP aprobado (Certificado).<br /><br />
+                        Como objetivos tengo la intención de seguir desarrollándome y de poder aplicar mis habilidades y conocimientos en donde pueda ser un aporte para el área clínica y de investigación.
+                    </p>
+                    <span><a href="https://stgsrdg.github.io/Dra.%20Luz%20Estela%20Jaimes%20(2020).pdf" class="read-more" target="_blank" rel="noopener noreferrer">Ver Más</a></span>
                 </div>
             </div>
-        <main>
+        </div>
 
-            <div style="background-color: white;">
-                <section class="services" id="services">
-                    <h2>Servicios:</h2>
-                    <div class="service">
-                        <h3>Atención Neonatal</h3>
-                        <p>Cuidados especiales desde el primer día.</p>
-                    </div>
-                    <div class="service">
-                        <h3>Consulta General</h3>
-                        <p>Revisión completa y seguimiento del desarrollo.</p>
-                    </div>
-                    <div class="service">
-                        <h3>Consultas en Línea</h3>
-                        <p>Facilidades para atención remota.</p>
-                    </div>
-                </section> 
-            </div>
-
-            <div class="backgr-img"></div>
-
-            <div style="background-color: white;">
+        <!-- Services Section -->
+        <div class="services-section">
+            <div class="services-container">
+                <h3 class="services-title">Servicios:</h3>
                 
-                <section class="about" id="about" style="margin-top: 10px; margin-bottom: 20px; margin-right: 10%; margin-left: 10%;">
-                    <h2>Sobre Mi</h2>
-                    <p>Me llamo Luz Estela Jaimes Orozco, médico cirujano con más de 25 años de experiencia en la atención de niños y adolescentes, con posgrado en Pediatría y 
-                        Puericultura con capacitación BLS y Cardiovascular Life Support.
-                        </p>
-                    <p>
-                        Profesional con alto nivel de compromiso, responsabilidad y ética. Cuento con capacidad de organización y dirección de equipos con buen 
-                        nivel de relacionamiento interpersonal. Como profesional extranjera radicada en Chile, cuento con Visa Profesional, EUNACOM ST y SP 
-                        aprobado (Certificado). Como objetivos tengo la intención de seguir desarrollándome y de poder aplicar mis habilidades y conocimientos en
-                        donde pueda ser un aporte para el área clínica y de investigación.
-                        </p>
-                    <h3><a href="https://stgsrdg.github.io/Dra. Luz Estela Jaimes (2020).pdf" class="seemore">Ver Más (Hoja de Vida completa)</a></h3>
-                </section>
-
-                <section class="contact" id="contact">
-                    <h2 style="margin-bottom: 25px;">Si Quieres Agendar Tu Cita, Contactame o deja tu mensaje:</h2>
-                    <a href="https://wa.me/+56933705038" class="WaBtn" id="contact">WhatsApp</a>
-                    <a href="tel:+573123747146" class="LLBtn">Llámame</a>
-                </section>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h4 class="service-title">Atención Neonatal</h4>
+                        <p class="service-description">Cuidados especiales desde el primer día.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h4 class="service-title">Consulta General</h4>
+                        <p class="service-description">Revisión completa y seguimiento del desarrollo.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h4 class="service-title">Consultas en Línea</h4>
+                        <p class="service-description">Facilidades para atención en línea remotamente.</p>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
 
-        <footer>
-            <p>&copy; 2024 Consulta Pediátrica. Todos los derechos reservados.</p>
-            <p>Create By <a target="_blank" href="https://codematehub.com/">Abel Nicolás J.O.</a></p>
-        </footer>
-
+        <!-- Contact Section -->
+        <div class="contact-section" id="contacto">
+            <div class="contact-container">
+                <h3 class="contact-title">Contáctame:</h3>
+                
+                <div class="contact-buttons">
+                    <div class="whatsapp-btn" onclick="contactWhatsApp()">WhatsApp</div>
+                    <div class="call-btn" onclick="makeCall()">Llámame</div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://stgsrdg.github.io/script.js"></script>
-    
+    <script>
+        function scheduleAppointment() {
+            alert('Redirigiendo al sistema de citas...');
+            // Here you would typically redirect to a booking system
+        }
+
+        function toggleReadMore() {
+            const readMoreBtn = document.querySelector('.read-more');
+            if (readMoreBtn.textContent === 'Ver Más') {
+                readMoreBtn.textContent = 'Ver Menos';
+            } else {
+                readMoreBtn.textContent = 'Ver Más';
+            }
+        }
+
+        function contactWhatsApp() {
+            // Replace with actual WhatsApp number
+            window.open('https://wa.me/+56933705038', '_blank');
+        }
+
+        function makeCall() {
+            // Replace with actual phone number
+            window.location.href = 'tel:+573123747146';
+        }
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+            console.log('Pediatric consultation page loaded');
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const aboutSection = document.querySelector('.about-section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target); // Opcional: para que no se repita
+                    }
+                });
+            }, {
+                threshold: 0.2 // La animación empieza cuando el 20% es visible
+            });
+
+            observer.observe(aboutSection);
+        });
+    </script>
 </body>
 </html>
